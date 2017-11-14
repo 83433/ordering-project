@@ -254,7 +254,6 @@ public class Pipe {
      * Accessor & mutator methods for each variable
      */
 
-    
     public void setColour(int newNoColours) {
         if (newNoColours >= 0 && newNoColours <=2) {
             noColours = newNoColours;
@@ -317,4 +316,3 @@ public class Pipe {
         return chemResist;
     }
 }
-
