@@ -11,29 +11,20 @@ package longpipes;
  */
 
 public class Order {
-    
-    private int customerID;
+   
     private int orderID;    
     private int orderDate;
     private float orderTotal; 
     private ArrayList<PipeOrder> pipeOrders;
 
-    public Order(int stCustomerID, int stOrderID, int stOrderDate, float stOrderTotal) {
-       customerID = stCustomerID;
+    public Order (int stOrderID, int stOrderDate, float stOrderTotal) {
+       
        orderID = stOrderID;
        orderDate = stOrderDate;
        orderTotal = 0;
        pipeOrders = new ArrayList<Piporder>();  
     }
    
-    
-    public void setCustomerID(int customerIDln){
-        customerID = customerIDln;
-      }
-    
-    public int getCustomerID(){
-        return customerID;
-    }
             
     public void setOrderID(int orderIDln){
         orderID = orderIDln;
@@ -54,8 +45,10 @@ public class Order {
  // Assuming that Pipeorder class will have "getCost"                       
             
     public float orderTotal() {
-        for (Pipeorder aPipeOrder : pipeOrders) 
-               orderTotal += aPipeOrder.getCost();
+        pipeOrders.forEach((aPipeOrder) -> {
+            orderTotal += aPipeOrder.getCost();
+        });
+        return 0;
     } 
 }
 
