@@ -132,7 +132,7 @@ public class Pipe {
     
     /**
      * Checks if the pipe can be supplied by LongPipes
-     * @return 
+     * @return whether the pipe can be supplied
      */
     public boolean canBeSupplied() {
         boolean possible = false;
