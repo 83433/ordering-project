@@ -253,7 +253,9 @@ public class Pipe {
     /**
      * Accessor & mutator methods for each variable
      */
-
+    /**
+     * @param newNoColours The edited number of colours required; 0 - 2.
+     */
     public void setColour(int newNoColours) {
         if (newNoColours >= 0 && newNoColours <=2) {
             noColours = newNoColours;
@@ -264,6 +266,10 @@ public class Pipe {
         return noColours;
     }
     
+    /**
+     * 
+     * @param newGrade The edited grade of plastic required for the pipe; 1-5
+     */
     public void setGrade(int newGrade) {
         if (newGrade > 0 && newGrade <=5) {
             grade = newGrade;
@@ -274,6 +280,10 @@ public class Pipe {
         return grade;
     }
     
+    /**
+     * 
+     * @param newDiameter The edited outer diameter of the pipe
+     */
     public void setOuterDiameter(double newDiameter) {
         outerDiameter = newDiameter;
     }
@@ -282,6 +292,10 @@ public class Pipe {
         return outerDiameter;
     }
     
+    /**
+     * 
+     * @param newLength The edited length of the pipe, less than 6m
+     */
     public void setLength(double newLength) {
         if (newLength > 0.0 && newLength <= 6.0) {
             length = newLength;
@@ -292,6 +306,10 @@ public class Pipe {
         return length;
     }
     
+    /**
+     * 
+     * @param insulate Whether the pipe needs inner insulation
+     */
     public void setInsulation(boolean insulate) {
         insulation = insulate;
     }
@@ -300,6 +318,10 @@ public class Pipe {
         return insulation;
     }
     
+    /**
+     * 
+     * @param reinforce Whether the pipe needs outer reinforcement
+     */
     public void setReinforcement(boolean reinforce) {
         reinforcement = reinforce;
     }
@@ -308,6 +330,9 @@ public class Pipe {
         return reinforcement;
     }
     
+    /**
+     * @param chemResistance Whether the pipe needs chemical resistance
+    */
     public void setChemResist(boolean chemResistance) {
         chemResist = chemResistance;
     }
