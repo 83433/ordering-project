@@ -12,6 +12,13 @@ import java.util.ArrayList;
  * @author Nasser 
  */
 
+/** Constructor for objects of type Pipe.
+     * 
+     * @param stOrderID the order's orderID
+     * @param stOrderDate The order's orderDate 
+     * @param stOrderTotal The order's orderTotal 
+     */    
+
 public class Order {
    
     private int orderID;    
@@ -44,7 +51,7 @@ public class Order {
         return orderDate;
     }
             
- // Assuming that Pipeorder class will have "getCost"                       
+ // By using getCost from the pipe class this will prompt the orderTotal                        
             
     public float orderTotal() {
         pipeOrders.forEach((aPipeOrder) -> {
