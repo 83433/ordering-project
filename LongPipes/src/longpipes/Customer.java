@@ -17,6 +17,17 @@ public class Customer {
     public Customer()
     {}
     
+    /** Constructor for objects of type Pipe.
+     * 
+     * @param cFName The customers first name
+     * @param cSName The customers surname
+     * @param cEmail The customers email
+     * @param cPhone The customers phone number
+     * @param cCompany The company that the customer works for
+     * @param cAddress The address of the customers company
+     * @param cPayment The customer payment details
+     */    
+    
     public Customer(String cFName, String cSName, String cEmail, String cPhone, String cCompany, String cAddress, double cPayment){
     
         firstName = cFName;
