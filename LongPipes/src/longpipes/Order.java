@@ -5,6 +5,8 @@
  */
 package longpipes;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Nasser 
@@ -22,7 +24,7 @@ public class Order {
        orderID = stOrderID;
        orderDate = stOrderDate;
        orderTotal = 0;
-       pipeOrders = new ArrayList<Piporder>();  
+       pipeOrders = new ArrayList<PipeOrder>();  
     }
    
             
