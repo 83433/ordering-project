@@ -3,6 +3,8 @@ package longpipes;
 /**
  *
  * @author Marcus
+ *
+ * Subclass describing objects of class PipeIII
  */
 public class PipeIII extends Pipe {
     
