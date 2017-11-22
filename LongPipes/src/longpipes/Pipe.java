@@ -1,6 +1,3 @@
-/*
- * 
- */
 package longpipes;
 
 /**
@@ -10,12 +7,13 @@ package longpipes;
  * 
  * Describes object of class Pipe
  */
-public class Pipe {
+public abstract class Pipe {
     
-    private int noColours, grade;
-    private double outerDiameter, length;
-    private boolean insulation, reinforcement, chemResist;
-    public String type;
+    int noColours;
+    int grade;
+    double outerDiameter, length;
+    boolean insulation, reinforcement, chemResist;
+    String type;
     
     /**
      * Empty constructor for objects of type Pipe
@@ -58,11 +56,30 @@ public class Pipe {
                 + reinforcement);
         System.out.println("\nPipe has chemical resistance: " + chemResist);
         System.out.println("\nCost of one length of this pipe: " 
-                + calculateCost());
+                + getCost());
         System.out.println("\nLongPipes can supply this type of pipe: "
                 + canBeSupplied());
         System.out.println("\nType of pipe: " + type);
         
+    }
+    
+    /**
+     * 
+     * @return the cost of the pipe
+     */
+    public abstract double getCost();
+    
+    /**
+     * Works out the volume of plastic in the pipe
+     * @return the volume of plastic in the pipe
+     */
+    public double getPlasticVolume() {
+        double imperialLength = length / 0.0254;
+        double innerDiameter = outerDiameter * 0.9;
+        double totalVolume = Math.pow((outerDiameter / 2), 2) * imperialLength * Math.PI;
+        double innerVolume = Math.pow((innerDiameter / 2), 2) * imperialLength * Math.PI;
+        double plasticVolume = totalVolume - innerVolume;
+        return plasticVolume;
     }
     
     /**
