@@ -5,7 +5,7 @@ package longpipes;
  * @author Marcus
  * @version 1.0.0
  * 
- * Class describing objects of type Pipe I
+ * Subclass describing objects of type Pipe I
  */
 public class PipeI extends Pipe {
     
