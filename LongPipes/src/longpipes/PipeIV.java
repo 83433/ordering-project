@@ -6,15 +6,32 @@
 package longpipes;
 
 /**
- *
+ * 
  * @author Marcus
  */
 public class PipeIV extends Pipe {
     
+    /**
+     * Constructor for subclass PipeIV
+     * Predefined properties from Pipe superclass:
+     *      Number of colours: 2
+     *      Inner insulation: true
+     *      Outer reinforcement: false
+     * 
+     * 
+     * @param grade the grade of the plastic (2-5)
+     * @param diam the outer diameter of the pipe in inches
+     * @param len the length of the pipe in meters (up to 6m)
+     * @param chemResist whether the pipe needs chemical resistance
+     */
     public PipeIV(int grade, double diam, double len, boolean chemResist) {
         super(2, grade, diam, len, true, false, chemResist);
     }
     
+    /**
+     * Calculates the cost for this length of pipe
+     * @return The cost of this length of pipe
+     */
     @Override
     public double getCost() {
         double cost = 0;

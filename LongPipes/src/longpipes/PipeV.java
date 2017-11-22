@@ -1,19 +1,31 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package longpipes;
 
 /**
- *
+ * 
  * @author Marcus
  */
 public class PipeV extends Pipe {
+    
+    /**
+     * Constructor for subclass PipeV
+     * Predefined properties from Pipe superclass:
+     *      Number of colours: 2
+     *      Inner insulation: true
+     *      Outer reinforcement: true
+     * 
+     * @param grade the grade of the plastic (3-5)
+     * @param diam the outer diameter of the pipe in inches
+     * @param len the length of the pipe in meters (up to 6m)
+     * @param chemResist whether the pipe needs chemical resistance
+     */
     public PipeV(int grade, double diam, double len, boolean chemResist) {
         super(2, grade, diam, len, true, true, chemResist);
     }
     
+    /**
+     * Calculates the cost for this length of pipe
+     * @return The cost of this length of pipe
+     */
     @Override
     public double getCost() {
         double cost = 0;
