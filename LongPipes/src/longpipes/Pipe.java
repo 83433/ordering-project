@@ -3,7 +3,7 @@ package longpipes;
 /**
  *
  * @author Marcus Wharton
- * @version 1.0.0
+ * @version 22.11.17
  * 
  * Describes object of class Pipe
  */
