@@ -64,7 +64,7 @@ public abstract class Pipe {
     }
     
     /**
-     * Abstract class to get the cost of the pipe
+     * Abstract method to get the cost of the pipe
      * 
      * @return the cost of the pipe
      */
