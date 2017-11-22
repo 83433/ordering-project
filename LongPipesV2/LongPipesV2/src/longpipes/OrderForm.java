@@ -451,6 +451,49 @@ public class OrderForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbGradeActionPerformed
 
+    private void txtFNameActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        String firstName = txtFName.getText();
+    }                                        
+
+    private void txtSNameActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        String surName = txtSName.getText();
+    }                                        
+
+    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        String email = txtEmail.getText();
+    }                                        
+
+    private void txtPhoneNumActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        String phoneNum = txtPhoneNum.getText();
+    }                                           
+
+    private void txtCompanyActionPerformed(java.awt.event.ActionEvent evt) {                                           
+        String company = txtCompany.getText();
+    }                                          
+
+    private void txtStreetNumActionPerformed(java.awt.event.ActionEvent evt) {                                             
+        String streetNum = txtStreetNum.getText();
+    }                                            
+
+    private void txtCardDetailsActionPerformed(java.awt.event.ActionEvent evt) {                                               
+        String cardDetails = txtCardDetails.getText();
+    }                                              
+
+    private void txtPostcodeActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        String postCode = txtPostcode.getText();
+    }   
+
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        txtFName.setText("");
+        txtSName.setText("");
+        txtEmail.setText("");
+        txtPhoneNum.setText("");
+        txtCompany.setText("");
+        txtStreetNum.setText("");
+        txtCardDetails.setText("");
+        txtPostcode.setText("");
+    }        
+ 
     /**
      * @param args the command line arguments
      */
