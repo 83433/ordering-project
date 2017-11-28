@@ -4,13 +4,13 @@ package longpipes;
  *
  * @author Marcus
  *
- * Subclass describing objects of class PipeIII
+ * Subclass of Pipe describing objects of class PipeIII
  */
 public class PipeIII extends Pipe {
     
     /**
      * Constructor for subclass PipeIII
-     * Predefined properties from Pipe superclass:
+     * Predefined properties for PipeIII:
      *      Number of colours: 2
      *      Inner insulation: false
      *      Outer reinforcement: false
@@ -19,8 +19,14 @@ public class PipeIII extends Pipe {
      * @param diam the outer diameter of the pipe in inches
      * @param len the length of the pipe in meters (up to 6m)
      * @param chemResist whether the pipe needs chemical resistance
+     * @param reinforcement whether the pipe has outer reinforcement, 
+     * only there for subclass use
+     * @param insulation whether the pipe has inner insulation, only there 
+     * for subclass use
+     * @param type the type of the pipe
      */
-    public PipeIII(int grade, double diam, double len, boolean chemResist, int type) {
+    public PipeIII(int grade, double diam, double len, boolean insulation, 
+            boolean reinforcement, boolean chemResist, int type) {
         super(2, grade, diam, len, false, false, chemResist, type);
     }
     

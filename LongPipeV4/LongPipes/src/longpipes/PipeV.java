@@ -4,13 +4,13 @@ package longpipes;
  * 
  * @author Marcus
  *
- * Subclass describing objects of class PipeV
+ * Subclass of PipeIV describing objects of class PipeV
  */
-public class PipeV extends Pipe {
+public class PipeV extends PipeIV {
     
     /**
      * Constructor for subclass PipeV
-     * Predefined properties from Pipe superclass:
+     * Predefined properties of PipeV:
      *      Number of colours: 2
      *      Inner insulation: true
      *      Outer reinforcement: true
@@ -21,7 +21,7 @@ public class PipeV extends Pipe {
      * @param chemResist whether the pipe needs chemical resistance
      */
     public PipeV(int grade, double diam, double len, boolean chemResist, int type) {
-        super(2, grade, diam, len, true, true, chemResist, type);
+        super(grade, diam, len, true, chemResist, type);
     }
     
     /**

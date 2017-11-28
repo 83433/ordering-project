@@ -5,13 +5,13 @@ package longpipes;
  * @author Marcus
  * @version 1.0.0
  * 
- * Subclass describing objects of type Pipe I
+ * Subclass of Pipe describing objects of type Pipe I
  */
 public class PipeI extends Pipe {
     
     /**
      * Constructor for subclass PipeI
-     * Predefined properties from Pipe superclass:
+     * Predefined properties for PipeI:
      *      Number of colours: 0
      *      Inner insulation: false
      *      Outer reinforcement: false

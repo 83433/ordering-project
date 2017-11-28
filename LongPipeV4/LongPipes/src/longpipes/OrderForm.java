@@ -540,10 +540,10 @@ public class OrderForm extends javax.swing.JFrame {
                     pipe = new PipeII(grade, diameter, length, chemResist, type);
                     break;
                 case 3:
-                    pipe = new PipeIII(grade, diameter, length, chemResist, type);
+                    pipe = new PipeIII(grade, diameter, length, false, false, chemResist, type);
                     break;
                 case 4:
-                    pipe = new PipeIV(grade, diameter, length, chemResist, type);
+                    pipe = new PipeIV(grade, diameter, length, false, chemResist, type);
                     break;
                 case 5:
                     pipe = new PipeV(grade, diameter, length, chemResist, type);
@@ -674,7 +674,8 @@ public class OrderForm extends javax.swing.JFrame {
         }
         
         dlm2.addElement("");
-        dlm2.addElement("<html><b>Total Cost:</b></html> £" + df.format(order.getOrderTotal()));
+        dlm2.addElement("<html><b>Total Cost:</b></html>");
+        dlm2.addElement("£" + df.format(order.getOrderTotal()));
         
         lstSummary.setModel(dlm2);
         
