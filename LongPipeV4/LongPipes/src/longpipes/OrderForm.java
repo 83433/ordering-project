@@ -41,7 +41,7 @@ public class OrderForm extends javax.swing.JFrame {
     private void initComponents() {
 
         tabControlPanel = new javax.swing.JTabbedPane();
-        jPanel5 = new javax.swing.JPanel();
+        Customer = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -60,7 +60,7 @@ public class OrderForm extends javax.swing.JFrame {
         btnProceed = new javax.swing.JButton();
         jLabel20 = new javax.swing.JLabel();
         txtPostcode = new javax.swing.JTextField();
-        jPanel1 = new javax.swing.JPanel();
+        Orders = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -92,7 +92,7 @@ public class OrderForm extends javax.swing.JFrame {
         btnAdd = new javax.swing.JButton();
         btnRemove = new javax.swing.JButton();
         btnComplete = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        Summary = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         lstSummary = new javax.swing.JList<>();
 
@@ -102,9 +102,10 @@ public class OrderForm extends javax.swing.JFrame {
         setResizable(false);
 
         tabControlPanel.setEnabled(false);
-        tabControlPanel.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                tabControlPanelStateChanged(evt);
+
+        Customer.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                CustomerKeyTyped(evt);
             }
         });
 
@@ -122,6 +123,12 @@ public class OrderForm extends javax.swing.JFrame {
 
         jLabel19.setText("Credit Card Number");
 
+        txtFName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFNameActionPerformed(evt);
+            }
+        });
+
         btnClear.setText("Clear");
         btnClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,81 +145,81 @@ public class OrderForm extends javax.swing.JFrame {
 
         jLabel20.setText("Street Number");
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
+        javax.swing.GroupLayout CustomerLayout = new javax.swing.GroupLayout(Customer);
+        Customer.setLayout(CustomerLayout);
+        CustomerLayout.setHorizontalGroup(
+            CustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CustomerLayout.createSequentialGroup()
+                .addGroup(CustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(CustomerLayout.createSequentialGroup()
                         .addGap(56, 56, 56)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(CustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(CustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jLabel13)
                                 .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.LEADING))
                             .addComponent(jLabel19))
                         .addGap(62, 62, 62)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(CustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtCompany)
                             .addComponent(txtEmail)
                             .addComponent(txtFName)
                             .addComponent(txtCardNum, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(CustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel16)
                             .addComponent(jLabel17)
                             .addComponent(jLabel18)
                             .addComponent(jLabel20))
                         .addGap(75, 75, 75)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(CustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtStreetNum, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(CustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txtPhoneNum, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtSName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtPostcode, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
+                    .addGroup(CustomerLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnClear)
                         .addGap(18, 18, 18)
                         .addComponent(btnProceed)))
                 .addGap(78, 78, 78))
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+        CustomerLayout.setVerticalGroup(
+            CustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CustomerLayout.createSequentialGroup()
                 .addGap(53, 53, 53)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(CustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
                     .addComponent(jLabel13)
                     .addComponent(txtFName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtSName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(CustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
                     .addComponent(jLabel17)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPhoneNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(CustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
                     .addComponent(txtCompany, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtStreetNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel20))
                 .addGap(48, 48, 48)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(CustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
                     .addComponent(txtCardNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18)
                     .addComponent(txtPostcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(CustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnProceed)
                     .addComponent(btnClear))
-                .addContainerGap(261, Short.MAX_VALUE))
+                .addContainerGap(273, Short.MAX_VALUE))
         );
 
-        tabControlPanel.addTab("Customer", jPanel5);
+        tabControlPanel.addTab("Customer", Customer);
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Pipe Details"));
 
@@ -397,65 +404,65 @@ public class OrderForm extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout OrdersLayout = new javax.swing.GroupLayout(Orders);
+        Orders.setLayout(OrdersLayout);
+        OrdersLayout.setHorizontalGroup(
+            OrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(OrdersLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(OrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(OrdersLayout.createSequentialGroup()
+                        .addGroup(OrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(OrdersLayout.createSequentialGroup()
                                 .addComponent(jLabel12)
                                 .addGap(47, 47, 47)
                                 .addComponent(txtTotalPipeCost, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(OrdersLayout.createSequentialGroup()
                                 .addComponent(jLabel11)
                                 .addGap(77, 77, 77)
                                 .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnAdd)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(OrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OrdersLayout.createSequentialGroup()
                         .addComponent(btnComplete)
                         .addGap(18, 18, 18)
                         .addComponent(btnRemove)))
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        OrdersLayout.setVerticalGroup(
+            OrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(OrdersLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(OrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(OrdersLayout.createSequentialGroup()
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(35, 35, 35)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(OrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel11)
                             .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(OrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(OrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel12)
                                 .addComponent(txtTotalPipeCost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(btnAdd)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(OrdersLayout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(OrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnRemove)
                             .addComponent(btnComplete))))
                 .addGap(51, 51, 51))
         );
 
-        tabControlPanel.addTab("Orders", jPanel1);
+        tabControlPanel.addTab("Orders", Orders);
 
         lstSummary.setBorder(javax.swing.BorderFactory.createTitledBorder("Receipt"));
         lstSummary.setModel(new javax.swing.AbstractListModel<String>() {
@@ -466,24 +473,24 @@ public class OrderForm extends javax.swing.JFrame {
         lstSummary.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane2.setViewportView(lstSummary);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout SummaryLayout = new javax.swing.GroupLayout(Summary);
+        Summary.setLayout(SummaryLayout);
+        SummaryLayout.setHorizontalGroup(
+            SummaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SummaryLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 743, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        SummaryLayout.setVerticalGroup(
+            SummaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SummaryLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 582, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        tabControlPanel.addTab("Order Summary", jPanel2);
+        tabControlPanel.addTab("Order Summary", Summary);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -602,6 +609,7 @@ public class OrderForm extends javax.swing.JFrame {
         String fName, sName, email, phoneNum, company, streetNum, postcode, cardNum;
         
         
+        
         fName = txtFName.getText();
         sName = txtSName.getText();
         email = txtEmail.getText();
@@ -611,12 +619,25 @@ public class OrderForm extends javax.swing.JFrame {
         postcode = txtPostcode.getText();
         cardNum = txtCardNum.getText();
         
-        user = new Customer(fName, sName, email, phoneNum, company, streetNum, postcode, cardNum);
-        tabControlPanel.setEnabled(true);
-        tabControlPanel.setSelectedIndex(1);
-        
+        // Checks to ensure that none of the text fields have been left empty
+        if(fName.equals("") || sName.equals("") || email.equals("") 
+                || phoneNum.equals("") || company.equals("") 
+                || streetNum.equals("") || postcode.equals("") 
+                || cardNum.equals("") ){
+            JOptionPane.showMessageDialog(null, "All the fields must be entered."); 
 
-        
+        // Checks to ensure that forename or surname doesnt contain numbers or special characters    
+        } else if(fName.matches("[a-zA-Z]+") == false || sName.matches("[a-zA-Z]+") == false){
+            JOptionPane.showMessageDialog(null, "Forename or Surname cannot contain numbers or special characters.");
+            
+        // Checks to see that the phone number and card number only contains digits
+        } else if(phoneNum.matches("[0-9]+") == false || cardNum.matches("[0-9]+") == false){
+            JOptionPane.showMessageDialog(null, "Phone number and Card number can only contain digits.");
+        } else{
+            user = new Customer(fName, sName, email, phoneNum, company, streetNum, postcode, cardNum);
+            tabControlPanel.setEnabled(true);
+            tabControlPanel.setSelectedIndex(1);
+        }      
         
     }//GEN-LAST:event_btnProceedActionPerformed
 
@@ -630,13 +651,6 @@ public class OrderForm extends javax.swing.JFrame {
         txtPostcode.setText("");
         txtCardNum.setText("");
     }//GEN-LAST:event_btnClearActionPerformed
-
-    private void tabControlPanelStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tabControlPanelStateChanged
-        int selectedIndex = tabControlPanel.getSelectedIndex();
-        if (selectedIndex == 0){
-            tabControlPanel.setEnabled(false);
-        }
-    }//GEN-LAST:event_tabControlPanelStateChanged
 
     private void btnCompleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompleteActionPerformed
         
@@ -681,6 +695,14 @@ public class OrderForm extends javax.swing.JFrame {
         
         tabControlPanel.setSelectedIndex(2);
     }//GEN-LAST:event_btnCompleteActionPerformed
+
+    private void txtFNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFNameActionPerformed
+
+    private void CustomerKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CustomerKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CustomerKeyTyped
 
     
     
@@ -743,6 +765,9 @@ public class OrderForm extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Customer;
+    private javax.swing.JPanel Orders;
+    private javax.swing.JPanel Summary;
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnClear;
     private javax.swing.JButton btnComplete;
@@ -773,11 +798,8 @@ public class OrderForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JList<String> lstOrders;
