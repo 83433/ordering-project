@@ -519,6 +519,17 @@ public class OrderForm extends javax.swing.JFrame {
         boolean insulation, reinforcement, chemResist;
         Pipe pipe;
         
+        
+        if(txtLength.getText().equals("") || txtDiameter.getText().equals("") || txtQuantity.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "All the fields must be entered."); 
+        } else if(txtLength.getText().matches(".[0-9]+") == false || txtDiameter.getText().matches("[0-9]+") == false 
+                || txtQuantity.getText().matches(".[0-9]+") == false){
+            JOptionPane.showMessageDialog(null, "All fields must be numeric.");
+        } else if(Double.parseDouble(txtLength.getText()) <= 0 || Double.parseDouble(txtLength.getText()) > 6){
+            JOptionPane.showMessageDialog(null, "Length must be greater than 0 and less than or equal to 6m.");
+        } else {
+        
+
         // get all user inputs
         
         noColours = Integer.parseInt(cmbColour.getItemAt(cmbColour.getSelectedIndex()));
@@ -530,11 +541,16 @@ public class OrderForm extends javax.swing.JFrame {
         chemResist = chkChemRes.isSelected();
         quantity = Integer.parseInt(txtQuantity.getText());
         
+        
+        
+            
         // check type of pipe: 0 means it is unavailable
         
         PipeChecker pc1 = new PipeChecker(grade, noColours, insulation, reinforcement);
         type = pc1.getType();
         
+        
+            
         if (type != 0) {
             
             pipe = new PipeI(grade, diameter, length, chemResist, type);
@@ -557,6 +573,10 @@ public class OrderForm extends javax.swing.JFrame {
                     break;
             }
             
+            
+            
+            
+                
             // instantiate a pipeorder and add it to the order object
             
             PipeOrder pipeOrder = new PipeOrder(pipe, quantity);
@@ -574,7 +594,8 @@ public class OrderForm extends javax.swing.JFrame {
             // message needs to be useful - show user which input is wrong
             JOptionPane.showMessageDialog(null, "This type of pipe is unavailable");
         }
-        
+        }
+    
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void lstOrdersValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstOrdersValueChanged
@@ -633,6 +654,15 @@ public class OrderForm extends javax.swing.JFrame {
         // Checks to see that the phone number and card number only contains digits
         } else if(phoneNum.matches("[0-9]+") == false || cardNum.matches("[0-9]+") == false){
             JOptionPane.showMessageDialog(null, "Phone number and Card number can only contain digits.");
+            
+        // Checks that the phone number is 11 digits long
+        } else if(phoneNum.length() != 11){
+            JOptionPane.showMessageDialog(null, "Phone number must be 11 digits long.");
+            
+        // Checks that the card number is 16 digits long
+        } else if(cardNum.length() != 16){
+            JOptionPane.showMessageDialog(null, "Card number must be 16 digits long with no spaces.");
+            
         } else{
             user = new Customer(fName, sName, email, phoneNum, company, streetNum, postcode, cardNum);
             tabControlPanel.setEnabled(true);
