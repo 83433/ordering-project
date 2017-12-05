@@ -535,10 +535,10 @@ public class OrderForm extends javax.swing.JFrame {
                 
                 if(length <= 0 || length > 6){
                     JOptionPane.showMessageDialog(null, "Length must be greater than 0 and less than or equal to 6.");
-                } else if (diameter <= 0){
-                    JOptionPane.showMessageDialog(null, "Diameter must be greater than 0.");
-                } else if (quantity <= 0){
-                    JOptionPane.showMessageDialog(null, "Quantity  must be greater than 0.");
+                } else if (diameter <= 0 || diameter > 100){
+                    JOptionPane.showMessageDialog(null, "Diameter must be greater than 0 and less than or equal to 100 inches.");
+                } else if (quantity <= 0 || quantity > 1000){
+                    JOptionPane.showMessageDialog(null, "Quantity  must be greater than 0 and less than or equal to 1000.");
                 } else {
 
                     // check type of pipe: 0 means it is unavailable
@@ -592,6 +592,12 @@ public class OrderForm extends javax.swing.JFrame {
                         } else if (noColours <= 1 && (reinforcement || insulation)){
                             JOptionPane.showMessageDialog(null, "A pipe with less than 2 colours cannot have "
                                     + "insulation or reinforcement.");
+                        } else if (noColours == 0 && grade == 4){
+                            JOptionPane.showMessageDialog(null, "A pipe with grade 4 cannot have 0 colours.");
+                        } else if (noColours <2 && grade == 5){
+                            JOptionPane.showMessageDialog(null, "A pipe with grade 5 must have 2 colours.");
+                        } else if (reinforcement && !insulation){
+                            JOptionPane.showMessageDialog(null, "A pipe cannot have reinforcement without insulation.");
                         } else {
                             JOptionPane.showMessageDialog(null, "This type of pipe is unavailable.");
                         }
