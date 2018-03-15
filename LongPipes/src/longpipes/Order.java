@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author Nasser 
  */
 
-/** Constructor for objects of type Pipe.
+/** Constructor for objects of type Order.
      * 
      * @param stOrderDate The order's orderDate 
      * @param stOrderTotal The order's orderTotal 
