@@ -7,55 +7,34 @@ package longpipes;
 
 /**
  *
- * @author ximas
+ * @author Sami
  */
 public class PipeOrder {
-    private int orderId;
     private Pipe pipe;
     private int quantity;
     private double cost;
     
     public PipeOrder(){}
     
-    public PipeOrder(int newOrderId, Pipe newPipe, int newQuantity){
-        orderId = newOrderId;
+    public PipeOrder(Pipe newPipe, int newQuantity){
         pipe = newPipe;
         quantity = newQuantity;
-    }
-    
-    public int getOrderId(){
-        return orderId;
-    }
-    
-    public void setOrderId(int newOrderId){
-        orderId = newOrderId;
     }
     
     public Pipe getPipe(){
         return pipe;
     }
     
-    public void setPipe(Pipe newPipe){
-        pipe = newPipe;
-        // when pipe is changed recalculate cost
-        calcCost();
-    }
-    
     public int getQuantity(){
         return quantity;
     }
     
-    public void setQuantity(int newQuantity){
-        quantity = newQuantity;
-        // when quantity is changed recalculate cost
-        calcCost();
-    }
-    
     public double getCost(){
+        calcCost();
         return cost;
     }
     
-    public void calcCost(){
-        // cost = pipe.getCost() * quantity;
+    private void calcCost(){
+        cost = pipe.getCost() * quantity;
     }
 }

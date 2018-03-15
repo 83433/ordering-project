@@ -13,7 +13,7 @@ public abstract class Pipe {
     int grade;
     double outerDiameter, length;
     boolean insulation, reinforcement, chemResist;
-    String type;
+    int type;
     
     /**
      * Empty constructor for objects of type Pipe
@@ -31,7 +31,7 @@ public abstract class Pipe {
      * @param chemical True/False whether the pipe has chemical resistance
      */
     public Pipe(int col, int grde, double diam, double len, 
-            boolean insulate, boolean reinforce, boolean chemical) {
+            boolean insulate, boolean reinforce, boolean chemical, int _type) {
         noColours = col;
         grade = grde;
         outerDiameter = diam;
@@ -39,28 +39,7 @@ public abstract class Pipe {
         insulation = insulate;
         reinforcement = reinforce;
         chemResist = chemical;
-    }
-    
-    /**
-     * Displays the details of the pipe, giving all variables, displays
-     * whether LongPipes can supply this specification of pipe, and the cost, 
-     * and the type.
-     */
-    public void pipeDetails() {
-        System.out.println("\nNumber of colours: " + noColours);
-        System.out.println("\nGrade: " + grade);
-        System.out.println("\nOuter diameter (inches): " + outerDiameter);
-        System.out.println("\nLength of pipe (meters): " + length);
-        System.out.println("\nPipe has internal insulation: " + insulation);
-        System.out.println("\nPipe has external reinforcement: "
-                + reinforcement);
-        System.out.println("\nPipe has chemical resistance: " + chemResist);
-        System.out.println("\nCost of one length of this pipe: " 
-                + getCost());
-        System.out.println("\nLongPipes can supply this type of pipe: "
-                + canBeSupplied());
-        System.out.println("\nType of pipe: " + type);
-        
+        type = _type;
     }
     
     /**
@@ -81,128 +60,7 @@ public abstract class Pipe {
         double innerVolume = Math.pow((innerDiameter / 2), 2) * imperialLength * Math.PI;
         double plasticVolume = totalVolume - innerVolume;
         return plasticVolume;
-    }
-    
-    /**
-     * Checks if the pipe can be supplied by LongPipes
-     * @return whether the pipe can be supplied
-     */
-    public boolean canBeSupplied() {
-        boolean possible = false;
-        if (checkTypeI()) {
-            possible = true;
-        }
-        else if (checkTypeII()) {
-            possible = true;
-        }
-        else if (checkTypeIII()) {
-            possible = true;
-        }
-        else if (checkTypeIV()) {
-            possible = true;
-        }
-        else if (checkTypeV()) {
-            possible = true;
-        }
-        return possible;
-    }
-    
-    /**
-     * Checks if Type I is applicable to this pipe
-     * 
-     * @return returns true if type I works for this pipe
-     */
-    public boolean checkTypeI() {
-        boolean possible = false;
-        if (grade >= 1 && grade <=3) {
-            if (noColours == 0) {
-                if (insulation == false) {
-                    if (reinforcement == false) {
-                        possible = true;
-                        type = "I";
-                    }
-                }
-            }
-        }
-        return possible;
-    }
-    
-    /** Checks if type II is applicable to this pipe
-     * 
-     * @return if type II works for this pipe
-     */
-    public boolean checkTypeII() {
-        boolean possible = false;
-        if (grade >= 2 && grade <= 4) {
-            if (noColours == 1) {
-                if (insulation == false) {
-                    if (reinforcement == false) {
-                        possible = true;
-                        type = "II";
-                    }
-                }
-            }
-        }
-        return possible;
-    }
-    
-    /** Checks if Type III is applicable to this pipe
-     * 
-     * @return whether type III works for this pipe
-     */
-    public boolean checkTypeIII() {
-        boolean possible = false;
-        if (grade >= 2 && grade <= 5) {
-            if (noColours == 2) {
-                if (insulation == false) {
-                    if (reinforcement == false) {
-                        possible = true;
-                        type = "III";
-                    }
-                }
-            }
-        }
-        return possible;
-    }
-    
-    /**
-     * Checks if type IV is applicable to this pipe
-     * @return whether type IV works for this pipe
-     */
-    public boolean checkTypeIV() {
-        boolean possible = false;
-        if (grade >= 2 && grade <= 5) {
-            if (noColours == 2) {
-                if (insulation == true) {
-                    if (reinforcement == false) {
-                        possible = true;
-                        type = "IV";
-                    }
-                }
-            }
-        }
-        return possible;
-    }
-    
-    /**
-     * Checks if type V is applicable to this pipe
-     * @return whether type V works for this pipe
-     */
-    public boolean checkTypeV() {
-        boolean possible = false;
-        if (grade >= 3 && grade <= 5) {
-            if (noColours == 2) {
-                if (insulation == true) {
-                    if (reinforcement == true) {
-                        possible = true;
-                        type = "V";
-                    }
-                }
-            }
-        }
-        return possible;
-    }
-    
+    }   
     /**
      * Accessor & mutator methods for each variable
      */
@@ -215,12 +73,14 @@ public abstract class Pipe {
         }
     }
     
+    /**
+     * @return noColours Return the number of colours required for the pipe; 0-2
+     */
     public int getNoColours() {
         return noColours;
     }
     
     /**
-     * 
      * @param newGrade The edited grade of plastic required for the pipe; 1-5
      */
     public void setGrade(int newGrade) {
@@ -229,24 +89,28 @@ public abstract class Pipe {
         }
     }
     
+    /**
+     * @return grade Returns the grade of material used for the pipe; 1-5
+     */
     public int getGrade() {
         return grade;
     }
     
     /**
-     * 
-     * @param newDiameter The edited outer diameter of the pipe
+     * @param newDiameter The edited outer diameter of the pipe (inches)
      */
     public void setOuterDiameter(double newDiameter) {
         outerDiameter = newDiameter;
     }
     
+    /**
+     * @return outerDiameter Returns the outer diameter of the pipe (inches)
+     */
     public double getOuterDiameter() {
         return outerDiameter;
     }
     
     /**
-     * 
      * @param newLength The edited length of the pipe, less than 6m
      */
     public void setLength(double newLength) {
@@ -255,6 +119,9 @@ public abstract class Pipe {
         }
     }
     
+    /**
+     * @return length The length of the pipe (meters)
+     */
     public double getLength() {
         return length;
     }
@@ -272,13 +139,15 @@ public abstract class Pipe {
     }
     
     /**
-     * 
      * @param reinforce Whether the pipe needs outer reinforcement
      */
     public void setReinforcement(boolean reinforce) {
         reinforcement = reinforce;
     }
     
+    /**
+     * @return reinforcement Return whether the pipe needs outer reinforcement
+     */
     public boolean getReinforcement() {
         return reinforcement;
     }
@@ -290,7 +159,17 @@ public abstract class Pipe {
         chemResist = chemResistance;
     }
     
+    /**
+     * @return chemResist Return whether the pipe requires chemical resistance
+     */
     public boolean getChemResist() {
         return chemResist;
+    }
+    
+    /**
+     * @return type Which kind of pipe the pipe is
+     */
+    public int getType(){
+        return type;
     }
 }

@@ -7,12 +7,11 @@ package longpipes;
 
 /**
  *
- * @author User
+ * @author David
  */
 public class Customer {
     
-    private String firstName, surName, email, phone, company, companyAddress;
-    private double payment;
+    private String firstName, surName, email, phone, company, streetNumber, postcode, payment;
     
     public Customer()
     {}
@@ -28,14 +27,16 @@ public class Customer {
      * @param cPayment The customer payment details
      */    
     
-    public Customer(String cFName, String cSName, String cEmail, String cPhone, String cCompany, String cAddress, double cPayment){
+    public Customer(String cFName, String cSName, String cEmail, String cPhone,
+            String cCompany, String cStreetNum, String cPostcode, String cPayment){
     
         firstName = cFName;
         surName = cSName;
         email = cEmail;
         phone = cPhone;
         company = cCompany;
-        companyAddress = cAddress;
+        streetNumber = cStreetNum;
+        postcode = cPostcode;
         payment = cPayment;
     }
     
@@ -79,30 +80,37 @@ public class Customer {
         return company;
     }
     
-    public void setCompAdd(String companyAddIn){
-        company = companyAddIn;    
+    public void setStreetNum(String streetNumIn){
+        streetNumber = streetNumIn;
     }
     
-    public String getCompAdd(){
-        return company;
+    public String getStreetNum(){
+        return streetNumber;
     }
     
-    public void setPayment(double paymentIn){
+    public void setPostcode(String postcodeIn){
+        postcode = postcodeIn;
+    }
+    
+    public String getPostcode(){
+        return postcode;
+    }
+    
+    public void setPayment(String paymentIn){
         payment = paymentIn;    
     }
     
-    public double getPayment(){
+    public String getPayment(){
         return payment;
-    }
+    }   
     
-    // Displays the details of the customer
     public void displayDetails(){
         System.out.println("\nName: " + firstName + " " + surName);
         System.out.println("\nEmail Address: " + email);
         System.out.println("\nPhone Number: " + phone);
         System.out.println("\nCompany Name: " + company);
-        System.out.println("\nCompany Address: " + companyAddress);
-        System.out.println("\nAmount Paid: £" + payment);
+        System.out.println("\nCompany Address: " + streetNumber);
+        System.out.println("\nPostcode: " + postcode);
+        System.out.println("\nCard number: " + payment);
     }
-            
 }

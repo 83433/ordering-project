@@ -1,3 +1,9 @@
+package longpipes;
+import java.awt.print.*;
+import java.text.DecimalFormat;
+import java.util.*;
+import javax.swing.*;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -6,15 +12,23 @@
 
 /**
  *
- * @author ximas
+ * @author Sami
  */
 public class OrderForm extends javax.swing.JFrame {
-
+    Date date = new Date();
+    String orderDate;
+    Order order;
+    Customer user;
+    DecimalFormat df;
     /**
      * Creates new form OrderForm
      */
     public OrderForm() {
         initComponents();
+        orderDate = "" + date.getDate() + "/" + (date.getMonth()+1) + "/" + (date.getYear()-100);
+        order = new Order(orderDate);
+        df =  new DecimalFormat("0.00");
+        txtDate.setText(orderDate);
     }
 
     /**
@@ -26,22 +40,27 @@ public class OrderForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane4 = new javax.swing.JTabbedPane();
-        jPanel5 = new javax.swing.JPanel();
+        tabControlPanel = new javax.swing.JTabbedPane();
+        Customer = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        btnProceed = new javax.swing.JButton();
-        txtFname = new javax.swing.JTextField();
-        txtSname = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        txtFName = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
         txtCompany = new javax.swing.JTextField();
-        txtCompAdd = new javax.swing.JTextField();
-        txtCard = new javax.swing.JTextField();
-        jPanel1 = new javax.swing.JPanel();
+        txtSName = new javax.swing.JTextField();
+        txtPhoneNum = new javax.swing.JTextField();
+        txtStreetNum = new javax.swing.JTextField();
+        txtCardNum = new javax.swing.JTextField();
+        btnClear = new javax.swing.JButton();
+        btnProceed = new javax.swing.JButton();
+        jLabel20 = new javax.swing.JLabel();
+        txtPostcode = new javax.swing.JTextField();
+        Orders = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -65,139 +84,148 @@ public class OrderForm extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtOrderTotal = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        lstOrders = new javax.swing.JList<>();
         jLabel11 = new javax.swing.JLabel();
         txtQuantity = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         txtTotalPipeCost = new javax.swing.JTextField();
         btnAdd = new javax.swing.JButton();
         btnRemove = new javax.swing.JButton();
-        PnlOrderSummary = new javax.swing.JPanel();
+        btnComplete = new javax.swing.JButton();
+        Summary = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        lstOrderSummary = new javax.swing.JList<>();
-        btnPrint = new javax.swing.JButton();
+        lstSummary = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Orders");
         setMinimumSize(null);
-        setPreferredSize(new java.awt.Dimension(1000, 700));
         setResizable(false);
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        jLabel13.setText("First Name: ");
+        tabControlPanel.setEnabled(false);
 
-        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        jLabel14.setText("Surname:");
-
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        jLabel15.setText("Email:");
-
-        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        jLabel16.setText("Company:");
-
-        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        jLabel17.setText("Company Address:");
-
-        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        jLabel18.setText("Credit Card Details:");
-
-        btnProceed.setText("Proceed");
-
-        txtFname.setText("jTextField1");
-
-        txtSname.setText("jTextField1");
-        txtSname.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSnameActionPerformed(evt);
+        Customer.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                CustomerKeyTyped(evt);
             }
         });
 
-        txtEmail.setText("jTextField1");
+        jLabel13.setText("First Name");
 
-        txtCompany.setText("jTextField1");
+        jLabel14.setText("Email");
 
-        txtCompAdd.setText("jTextField1");
+        jLabel15.setText("Company");
 
-        txtCard.setText("jTextField1");
+        jLabel16.setText("Surname");
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnProceed, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel13)
-                                    .addComponent(jLabel16))
-                                .addGap(84, 84, 84)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtFname, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel14))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel18)
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addComponent(txtCard, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(269, 269, 269))
-                                    .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addComponent(txtCompany, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel17)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtSname, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCompAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(33, 33, 33))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel15)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+        jLabel17.setText("Phone Number");
+
+        jLabel18.setText("Postcode");
+
+        jLabel19.setText("Credit Card Number");
+
+        txtFName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFNameActionPerformed(evt);
+            }
+        });
+
+        btnClear.setText("Clear");
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
+
+        btnProceed.setText("Proceed");
+        btnProceed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProceedActionPerformed(evt);
+            }
+        });
+
+        jLabel20.setText("Street Number");
+
+        javax.swing.GroupLayout CustomerLayout = new javax.swing.GroupLayout(Customer);
+        Customer.setLayout(CustomerLayout);
+        CustomerLayout.setHorizontalGroup(
+            CustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CustomerLayout.createSequentialGroup()
+                .addGroup(CustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(CustomerLayout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addGroup(CustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(CustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel13)
+                                .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(jLabel19))
+                        .addGap(62, 62, 62)
+                        .addGroup(CustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtCompany)
+                            .addComponent(txtEmail)
+                            .addComponent(txtFName)
+                            .addComponent(txtCardNum, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                        .addGroup(CustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel18)
+                            .addComponent(jLabel20))
+                        .addGap(75, 75, 75)
+                        .addGroup(CustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtStreetNum, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(CustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtPhoneNum, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtSName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtPostcode, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(CustomerLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnClear)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnProceed)))
+                .addGap(78, 78, 78))
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel14)
-                    .addComponent(txtFname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(81, 81, 81)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        CustomerLayout.setVerticalGroup(
+            CustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CustomerLayout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addGroup(CustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
-                    .addComponent(txtCompany, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13)
+                    .addComponent(txtFName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44)
+                .addGroup(CustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
                     .addComponent(jLabel17)
-                    .addComponent(txtCompAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(89, 89, 89)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPhoneNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44)
+                .addGroup(CustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(txtCompany, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtStreetNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel20))
+                .addGap(48, 48, 48)
+                .addGroup(CustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(txtCardNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18)
-                    .addComponent(txtCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(93, 93, 93)
-                .addComponent(btnProceed, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                    .addComponent(txtPostcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
+                .addGroup(CustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnProceed)
+                    .addComponent(btnClear))
+                .addContainerGap(273, Short.MAX_VALUE))
         );
 
-        jTabbedPane4.addTab("Customer Details", jPanel5);
+        tabControlPanel.addTab("Customer", Customer);
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Pipe Details"));
 
         jLabel3.setText("Length (m)");
 
-        jLabel4.setText("Diameter");
+        jLabel4.setText("Diameter (inch)");
 
         jLabel5.setText("Number of Colours");
 
@@ -222,6 +250,8 @@ public class OrderForm extends javax.swing.JFrame {
         jLabel10.setText("Individual Pipe Cost");
         jLabel10.setToolTipText("");
 
+        txtPipeCost.setEditable(false);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -240,7 +270,7 @@ public class OrderForm extends javax.swing.JFrame {
                             .addComponent(jLabel5)
                             .addComponent(jLabel8)
                             .addComponent(jLabel7))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(cmbGrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtDiameter, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -299,9 +329,13 @@ public class OrderForm extends javax.swing.JFrame {
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Order Details"));
 
+        txtDate.setEditable(false);
+
         jLabel1.setText("Date");
 
         jLabel2.setText("Order Total");
+
+        txtOrderTotal.setEditable(false);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -332,14 +366,14 @@ public class OrderForm extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jList1.setBorder(javax.swing.BorderFactory.createTitledBorder("Orders"));
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+        lstOrders.setBorder(javax.swing.BorderFactory.createTitledBorder("Orders"));
+        lstOrders.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        lstOrders.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                lstOrdersValueChanged(evt);
+            }
         });
-        jList1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(lstOrders);
 
         jLabel11.setText("Quantity");
         jLabel11.setToolTipText("");
@@ -347,107 +381,126 @@ public class OrderForm extends javax.swing.JFrame {
         jLabel12.setText("Total Pipe Cost");
         jLabel12.setToolTipText("");
 
+        txtTotalPipeCost.setEditable(false);
+
         btnAdd.setText("Add To Basket");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
 
         btnRemove.setText("Remove Item");
+        btnRemove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoveActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        btnComplete.setText("Complete Order");
+        btnComplete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCompleteActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout OrdersLayout = new javax.swing.GroupLayout(Orders);
+        Orders.setLayout(OrdersLayout);
+        OrdersLayout.setHorizontalGroup(
+            OrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(OrdersLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel12)
-                        .addGap(38, 38, 38)
-                        .addComponent(txtTotalPipeCost, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-                        .addComponent(btnAdd))
+                .addGroup(OrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addGap(77, 77, 77)
-                        .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRemove))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(OrdersLayout.createSequentialGroup()
+                        .addGroup(OrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(OrdersLayout.createSequentialGroup()
+                                .addComponent(jLabel12)
+                                .addGap(47, 47, 47)
+                                .addComponent(txtTotalPipeCost, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(OrdersLayout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addGap(77, 77, 77)
+                                .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAdd)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addGroup(OrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OrdersLayout.createSequentialGroup()
+                        .addComponent(btnComplete)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnRemove)))
+                .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        OrdersLayout.setVerticalGroup(
+            OrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(OrdersLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(OrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(OrdersLayout.createSequentialGroup()
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(35, 35, 35)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(65, 65, 65)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(OrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel11)
-                            .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel12)
-                        .addComponent(txtTotalPipeCost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnAdd)
-                        .addComponent(btnRemove)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(OrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(OrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel12)
+                                .addComponent(txtTotalPipeCost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnAdd)))
+                    .addGroup(OrdersLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(OrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnRemove)
+                            .addComponent(btnComplete))))
+                .addGap(51, 51, 51))
         );
 
-        jTabbedPane4.addTab("Orders", jPanel1);
+        tabControlPanel.addTab("Orders", Orders);
 
-        lstOrderSummary.setBorder(javax.swing.BorderFactory.createTitledBorder("Receipt"));
-        lstOrderSummary.setModel(new javax.swing.AbstractListModel<String>() {
+        lstSummary.setBorder(javax.swing.BorderFactory.createTitledBorder("Receipt"));
+        lstSummary.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        lstOrderSummary.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jScrollPane2.setViewportView(lstOrderSummary);
+        lstSummary.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane2.setViewportView(lstSummary);
 
-        btnPrint.setText("Print");
-
-        javax.swing.GroupLayout PnlOrderSummaryLayout = new javax.swing.GroupLayout(PnlOrderSummary);
-        PnlOrderSummary.setLayout(PnlOrderSummaryLayout);
-        PnlOrderSummaryLayout.setHorizontalGroup(
-            PnlOrderSummaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PnlOrderSummaryLayout.createSequentialGroup()
+        javax.swing.GroupLayout SummaryLayout = new javax.swing.GroupLayout(Summary);
+        Summary.setLayout(SummaryLayout);
+        SummaryLayout.setHorizontalGroup(
+            SummaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SummaryLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 743, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PnlOrderSummaryLayout.createSequentialGroup()
-                .addContainerGap(632, Short.MAX_VALUE)
-                .addComponent(btnPrint)
-                .addGap(20, 20, 20))
         );
-        PnlOrderSummaryLayout.setVerticalGroup(
-            PnlOrderSummaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PnlOrderSummaryLayout.createSequentialGroup()
+        SummaryLayout.setVerticalGroup(
+            SummaryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SummaryLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnPrint)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 582, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        jTabbedPane4.addTab("Order Summary", PnlOrderSummary);
+        tabControlPanel.addTab("Order Summary", Summary);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 712, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(tabControlPanel)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane4)
+            .addComponent(tabControlPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -457,10 +510,242 @@ public class OrderForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbGradeActionPerformed
 
-    private void txtSnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSnameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSnameActionPerformed
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        // this method needs to contain vaildation
+        // pipeOrder needs to be added to a global array
+        
+        int noColours, grade, type, quantity;
+        double diameter, length;
+        boolean insulation, reinforcement, chemResist;
+        Pipe pipe;
+        
+        if(txtLength.getText().equals("") || txtDiameter.getText().equals("") || txtQuantity.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "All the fields must be entered.");
+        } else {                  
+            try {   
+                // get all user inputs 
+                noColours = Integer.parseInt(cmbColour.getItemAt(cmbColour.getSelectedIndex()));
+                grade = Integer.parseInt(cmbGrade.getItemAt(cmbGrade.getSelectedIndex()));
+                diameter = Double.parseDouble(txtDiameter.getText());
+                length = Double.parseDouble(txtLength.getText());
+                insulation = chkInsulation.isSelected();
+                reinforcement = chkReinforce.isSelected();
+                chemResist = chkChemRes.isSelected();
+                quantity = Integer.parseInt(txtQuantity.getText());
+                
+                if(length <= 0 || length > 6){
+                    JOptionPane.showMessageDialog(null, "Length must be greater than 0 and less than or equal to 6.");
+                } else if (diameter <= 0 || diameter > 100){
+                    JOptionPane.showMessageDialog(null, "Diameter must be greater than 0 and less than or equal to 100 inches.");
+                } else if (quantity <= 0 || quantity > 1000){
+                    JOptionPane.showMessageDialog(null, "Quantity  must be greater than 0 and less than or equal to 1000.");
+                } else {
 
+                    // check type of pipe: 0 means it is unavailable
+
+                    PipeChecker pc1 = new PipeChecker(grade, noColours, insulation, reinforcement);
+                    type = pc1.getType();
+
+                    if (type != 0) { 
+                        
+                        pipe = new PipeI(grade, diameter, length, chemResist, type);
+                        
+                        switch (type) {
+                            case 1:
+                                pipe = new PipeI(grade, diameter, length, chemResist, type);
+                                break;
+                            case 2:
+                                pipe = new PipeII(grade, diameter, length, chemResist, type);
+                                break;
+                            case 3:
+                                pipe = new PipeIII(grade, diameter, length, false, false, chemResist, type);
+                                break;
+                            case 4:
+                                pipe = new PipeIV(grade, diameter, length, false, chemResist, type);
+                                break;
+                            case 5:
+                                pipe = new PipeV(grade, diameter, length, chemResist, type);
+                                break;
+                        }
+
+                        // instantiate a pipeorder and add it to the order object
+
+                        PipeOrder pipeOrder = new PipeOrder(pipe, quantity);
+                        order.addPipeOrder(pipeOrder);
+
+                        txtPipeCost.setText("£" + df.format(pipe.getCost()));
+                        txtTotalPipeCost.setText("£" + df.format(pipeOrder.getCost()));
+                        txtOrderTotal.setText("£" + df.format(order.getOrderTotal()));
+
+                        refreshLstOrders();
+
+
+
+                    } else {
+                        // message needs to be useful - show user which input is wrong
+                        if (grade == 1 && noColours> 0){
+                            JOptionPane.showMessageDialog(null, "A pipe of grade 1 must have 0 colours.");
+                        } else if (grade == 1 && insulation){
+                            JOptionPane.showMessageDialog(null, "A pipe of grade 1 cannot have insulation.");
+                        } else if ((grade == 1 || grade == 2) && reinforcement){
+                            JOptionPane.showMessageDialog(null, "A pipe of grades 1 or 2 cannot have reinforcement.");
+                        } else if (noColours <= 1 && (reinforcement || insulation)){
+                            JOptionPane.showMessageDialog(null, "A pipe with less than 2 colours cannot have "
+                                    + "insulation or reinforcement.");
+                        } else if (noColours == 0 && grade == 4){
+                            JOptionPane.showMessageDialog(null, "A pipe with grade 4 cannot have 0 colours.");
+                        } else if (noColours <2 && grade == 5){
+                            JOptionPane.showMessageDialog(null, "A pipe with grade 5 must have 2 colours.");
+                        } else if (reinforcement && !insulation){
+                            JOptionPane.showMessageDialog(null, "A pipe cannot have reinforcement without insulation.");
+                        } else {
+                            JOptionPane.showMessageDialog(null, "This type of pipe is unavailable.");
+                        }
+                    }
+                }
+            } catch (Exception e){
+                JOptionPane.showMessageDialog(null, "All fields must be numeric.");
+            }
+        }
+        
+    
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private void lstOrdersValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstOrdersValueChanged
+        int selectedIndex = lstOrders.getSelectedIndex();
+        PipeOrder aPipeOrder = order.getPipeOrders().get(selectedIndex);
+        Pipe aPipe = aPipeOrder.getPipe();
+        txtLength.setText(String.valueOf(aPipe.getLength()));
+        txtDiameter.setText(String.valueOf(aPipe.getOuterDiameter()));
+        cmbGrade.setSelectedItem(String.valueOf(aPipe.getGrade()));
+        cmbColour.setSelectedItem(String.valueOf(aPipe.getNoColours()));
+        chkInsulation.setSelected(aPipe.getInsulation());
+        chkReinforce.setSelected(aPipe.getReinforcement());
+        chkChemRes.setSelected(aPipe.getChemResist());
+        txtPipeCost.setText("£" + df.format(aPipe.getCost()));
+        txtQuantity.setText(String.valueOf(aPipeOrder.getQuantity()));
+        txtTotalPipeCost.setText("£" + df.format(aPipeOrder.getCost()));
+    }//GEN-LAST:event_lstOrdersValueChanged
+
+    private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
+        // message needs to be added to tell inform user that no item is selected
+        int selectedIndex = lstOrders.getSelectedIndex();
+        if (selectedIndex != -1){
+            try {
+                order.removePipeOrder(selectedIndex);
+                refreshLstOrders();
+            } catch (Exception e){}
+        }
+    }//GEN-LAST:event_btnRemoveActionPerformed
+
+    private void btnProceedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProceedActionPerformed
+        String fName, sName, email, phoneNum, company, streetNum, postcode, cardNum;
+        
+        
+        
+        fName = txtFName.getText();
+        sName = txtSName.getText();
+        email = txtEmail.getText();
+        phoneNum = txtPhoneNum.getText();
+        company = txtCompany.getText();
+        streetNum = txtStreetNum.getText();
+        postcode = txtPostcode.getText();
+        cardNum = txtCardNum.getText();
+        
+        // Checks to ensure that none of the text fields have been left empty
+        if(fName.equals("") || sName.equals("") || email.equals("") 
+                || phoneNum.equals("") || company.equals("") 
+                || streetNum.equals("") || postcode.equals("") 
+                || cardNum.equals("") ){
+            JOptionPane.showMessageDialog(null, "All the fields must be entered."); 
+
+        // Checks to ensure that forename or surname doesnt contain numbers or special characters    
+        } else if(fName.matches("[a-zA-Z]+") == false || sName.matches("[a-zA-Z]+") == false){
+            JOptionPane.showMessageDialog(null, "Forename or Surname cannot contain numbers or special characters.");
+            
+        // Checks to see that the phone number and card number only contains digits
+        } else if(phoneNum.matches("[0-9]+") == false || cardNum.matches("[0-9]+") == false){
+            JOptionPane.showMessageDialog(null, "Phone number and Card number can only contain digits.");
+            
+        // Checks that the phone number is 11 digits long
+        } else if(phoneNum.length() != 11){
+            JOptionPane.showMessageDialog(null, "Phone number must be 11 digits long.");
+            
+        // Checks that the card number is 16 digits long
+        } else if(cardNum.length() != 16){
+            JOptionPane.showMessageDialog(null, "Card number must be 16 digits long with no spaces.");
+            
+        } else{
+            user = new Customer(fName, sName, email, phoneNum, company, streetNum, postcode, cardNum);
+            tabControlPanel.setEnabled(true);
+            tabControlPanel.setSelectedIndex(1);
+        }      
+        
+    }//GEN-LAST:event_btnProceedActionPerformed
+
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        txtFName.setText("");
+        txtSName.setText("");
+        txtEmail.setText("");
+        txtPhoneNum.setText("");
+        txtCompany.setText("");
+        txtStreetNum.setText("");
+        txtPostcode.setText("");
+        txtCardNum.setText("");
+    }//GEN-LAST:event_btnClearActionPerformed
+
+    private void btnCompleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompleteActionPerformed
+        
+        Iterator<PipeOrder> it = order.getPipeOrders().iterator();
+        DefaultListModel dlm2 = new DefaultListModel();
+        Pipe aPipe;
+        
+        PipeOrder aPipeOrder;
+        
+        dlm2.addElement("<html><b>Details:</b></html>");
+        dlm2.addElement("Name: " + user.getFName() + " " + user.getSName());
+        dlm2.addElement("Email: " + user.getEmail());
+        dlm2.addElement("Phone Number: " + user.getPhone());
+        dlm2.addElement("Address: " + user.getCompany() + ", " + user.getStreetNum() + ", " + user.getPostcode());
+        
+        
+        while(it.hasNext()){ 
+            aPipeOrder = it.next();
+            aPipe = aPipeOrder.getPipe();
+            
+
+            dlm2.addElement("");
+            dlm2.addElement("Pipe Type: " + aPipe.getType());
+            dlm2.addElement("Length: " + aPipe.getLength());
+            dlm2.addElement("Diameter " + aPipe.getOuterDiameter());
+            dlm2.addElement("Grade: " + aPipe.getGrade());
+            dlm2.addElement("Number of colours: " + aPipe.getNoColours());
+            dlm2.addElement("Insulation: " + aPipe.getInsulation());
+            dlm2.addElement("Chemical Resistance: " + aPipe.getChemResist());
+            dlm2.addElement("Reinforcement: " + aPipe.getReinforcement());
+            dlm2.addElement("Quantity: " + aPipeOrder.getQuantity()); 
+            dlm2.addElement("Cost: £" + df.format(aPipeOrder.getCost()));     
+        }
+        
+        dlm2.addElement("");
+        dlm2.addElement("<html><b>Total Cost:</b></html>");
+        dlm2.addElement("£" + df.format(order.getOrderTotal()));
+        
+        lstSummary.setModel(dlm2);
+        
+        tabControlPanel.setSelectedIndex(2);
+    }//GEN-LAST:event_btnCompleteActionPerformed
+
+    private void txtFNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFNameActionPerformed
+
+    private void CustomerKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CustomerKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CustomerKeyTyped
+
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -495,11 +780,36 @@ public class OrderForm extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void refreshLstOrders(){
+        Iterator<PipeOrder> it = order.getPipeOrders().iterator();
+        DefaultListModel dlm = new DefaultListModel();
+        Pipe aPipe;
+        PipeOrder aPipeOrder;
+        
+        while(it.hasNext()){ 
+            aPipeOrder = it.next();
+            aPipe = aPipeOrder.getPipe();
+            dlm.addElement("Pipe type: " + aPipe.getType() + ", x" + aPipeOrder.getQuantity()
+            + "=£" + df.format(aPipeOrder.getCost()));
+        }
+        
+        txtOrderTotal.setText("£" + df.format(order.getOrderTotal()));
+        // invokes lstOrdersValueChanged as selectedIndex is set to -1
+        // must be last line of method
+        lstOrders.setModel(dlm);
+    }
+    
+    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel PnlOrderSummary;
+    private javax.swing.JPanel Customer;
+    private javax.swing.JPanel Orders;
+    private javax.swing.JPanel Summary;
     private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnPrint;
+    private javax.swing.JButton btnClear;
+    private javax.swing.JButton btnComplete;
     private javax.swing.JButton btnProceed;
     private javax.swing.JButton btnRemove;
     private javax.swing.JCheckBox chkChemRes;
@@ -517,7 +827,9 @@ public class OrderForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -525,27 +837,27 @@ public class OrderForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTabbedPane jTabbedPane4;
-    private javax.swing.JList<String> lstOrderSummary;
-    private javax.swing.JTextField txtCard;
-    private javax.swing.JTextField txtCompAdd;
+    private javax.swing.JList<String> lstOrders;
+    private javax.swing.JList<String> lstSummary;
+    private javax.swing.JTabbedPane tabControlPanel;
+    private javax.swing.JTextField txtCardNum;
     private javax.swing.JTextField txtCompany;
     private javax.swing.JTextField txtDate;
     private javax.swing.JTextField txtDiameter;
     private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtFname;
+    private javax.swing.JTextField txtFName;
     private javax.swing.JTextField txtLength;
     private javax.swing.JTextField txtOrderTotal;
+    private javax.swing.JTextField txtPhoneNum;
     private javax.swing.JTextField txtPipeCost;
+    private javax.swing.JTextField txtPostcode;
     private javax.swing.JTextField txtQuantity;
-    private javax.swing.JTextField txtSname;
+    private javax.swing.JTextField txtSName;
+    private javax.swing.JTextField txtStreetNum;
     private javax.swing.JTextField txtTotalPipeCost;
     // End of variables declaration//GEN-END:variables
 }

@@ -14,50 +14,46 @@ import java.util.ArrayList;
 
 /** Constructor for objects of type Pipe.
      * 
-     * @param stOrderID the order's orderID
      * @param stOrderDate The order's orderDate 
      * @param stOrderTotal The order's orderTotal 
      */    
 
-public class Order {
-   
-    private int orderID;    
-    private int orderDate;
-    private float orderTotal; 
-    private ArrayList<PipeOrder> pipeOrders;
+public class Order { 
+    private final String orderDate;
+    private double orderTotal; 
+    private final ArrayList<PipeOrder> pipeOrders;
 
-    public Order (int stOrderID, int stOrderDate, float stOrderTotal) {
-       
-       orderID = stOrderID;
+    public Order (String stOrderDate) {
+
        orderDate = stOrderDate;
        orderTotal = 0;
-       pipeOrders = new ArrayList<PipeOrder>();  
-    }
-   
-            
-    public void setOrderID(int orderIDln){
-        orderID = orderIDln;
-    } 
-    
-    public int getOrderID(){
-        return orderID;
-    }
-     
-    public void setOrderDate(int orderDateln){
-        orderDate = orderDateln;
+       pipeOrders = new ArrayList<>();  
     }
     
-    public int getOrderDate(){
+    public String getOrderDate(){
         return orderDate;
     }
             
- // By using getCost from the pipe class this will prompt the orderTotal                        
+    // By using getCost from the pipe class this will prompt the orderTotal                        
             
-    public float orderTotal() {
+    public double getOrderTotal() {
+        orderTotal = 0;
         pipeOrders.forEach((aPipeOrder) -> {
             orderTotal += aPipeOrder.getCost();
         });
-        return 0;
-    } 
+        return orderTotal;
+    }
+    
+    public void addPipeOrder(PipeOrder newPipeOrder){
+        pipeOrders.add(newPipeOrder);
+    }
+    
+    public void removePipeOrder(int index){
+        pipeOrders.remove(index);
+    }
+    
+    public ArrayList<PipeOrder> getPipeOrders(){
+        return pipeOrders;
+    }
 }
 
